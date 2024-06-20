@@ -6,15 +6,25 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "prisma:generate": "npx dotenv -e .env.local -- prisma generate",
+    "migrate:dev": "npx dotenv -e .env.local -- prisma migrate dev",
+    "prisma:studio": "npx dotenv -e .env.local -- prisma studio",
+    "migrate": "npx dotenv -e .env.local -- prisma migrate deploy",
+    "build:production": "npx dotenv -e .env.local -- npm run migrate && npm run generate && npm run build"
   },
   "dependencies": {
+    "@prisma/client": "^5.12.1",
+    "bootstrap": "^5.3.3",
+    "next": "14.2.2",
     "react": "^18",
-    "react-dom": "^18",
-    "next": "14.2.2"
+    "react-bootstrap": "^2.10.2",
+    "react-dom": "^18"
   },
   "devDependencies": {
+    "dotenv-cli": "^7.4.1",
     "eslint": "^8",
-    "eslint-config-next": "14.2.2"
+    "eslint-config-next": "14.2.2",
+    "prisma": "^5.12.1"
   }
 }
